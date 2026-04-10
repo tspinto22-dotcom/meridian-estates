@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Meridian Estates — Luxury Real Estate Miami</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav id="mainNav">
+  <a href="index.html" class="logo">Meridian<span>.</span>Estates</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="properties.html">Properties</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="window.location.href='contact.html'">Book Consultation</button>
+</nav>
+
+<!-- HERO -->
+<section style="height:100vh;position:relative;display:flex;align-items:flex-end;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85') center/cover no-repeat;transform:scale(1.08);animation:heroZoom 12s ease-out forwards;"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,.2) 0%,rgba(10,10,10,.1) 40%,rgba(10,10,10,.75) 75%,rgba(10,10,10,.97) 100%);"></div>
+  <div style="position:relative;z-index:2;padding:0 5vw 8vh;max-width:820px;">
+    <p style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.4rem;opacity:0;animation:fadeUp .8s .4s forwards;">✦ Luxury Real Estate — Miami & Beyond</p>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:300;line-height:1.08;color:var(--white);opacity:0;animation:fadeUp .9s .6s forwards;">Where Extraordinary<br/>Homes Find <em style="font-style:italic;color:var(--gold-light);">Exceptional</em><br/>Owners</h1>
+    <p style="margin-top:1.6rem;font-size:14px;color:rgba(245,240,232,.65);line-height:1.7;max-width:480px;opacity:0;animation:fadeUp .9s .85s forwards;">Meridian Estates specializes in the acquisition and sale of Miami's most distinguished properties. Discreet, expert, and relentlessly dedicated to you.</p>
+    <div style="display:flex;gap:1.2rem;margin-top:2.4rem;opacity:0;animation:fadeUp .9s 1.05s forwards;">
+      <button class="btn-gold" onclick="window.location.href='properties.html'">View Properties</button>
+      <button class="btn-outline" onclick="window.location.href='contact.html'">Speak to an Agent</button>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;">
+  <div class="stat" style="flex:1;padding:2.2rem 2rem;text-align:center;border-right:1px solid var(--border);"><div style="font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:600;color:var(--gold);">$2.4B+</div><div style="font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:.5rem;">Total Sales Volume</div></div>
+  <div class="stat" style="flex:1;padding:2.2rem 2rem;text-align:center;border-right:1px solid var(--border);"><div style="font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:600;color:var(--gold);">340+</div><div style="font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:.5rem;">Luxury Homes Sold</div></div>
+  <div class="stat" style="flex:1;padding:2.2rem 2rem;text-align:center;border-right:1px solid var(--border);"><div style="font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:600;color:var(--gold);">18</div><div style="font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:.5rem;">Years of Experience</div></div>
+  <div class="stat" style="flex:1;padding:2.2rem 2rem;text-align:center;"><div style="font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:600;color:var(--gold);">97%</div><div style="font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:.5rem;">Client Satisfaction</div></div>
+</div>
+
+<!-- FEATURED LISTINGS -->
+<section style="padding:7rem 5vw;">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;" class="reveal">
+    <div>
+      <span class="section-tag">✦ Featured Properties</span>
+      <h2 class="section-title">Curated <em>Residences</em></h2>
+    </div>
+    <a href="properties.html" style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);text-decoration:none;font-weight:500;">View All Properties →</a>
+  </div>
+  <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:1px;background:var(--border);" class="reveal reveal-delay-1">
+    <div style="position:relative;overflow:hidden;background:var(--card);cursor:none;grid-row:1/3;" class="listing-card-wrap">
+      <div style="overflow:hidden;height:100%;min-height:520px;"><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform .7s;filter:brightness(.88);display:block;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"/></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:1.8rem;background:linear-gradient(transparent,rgba(10,10,10,.92));">
+        <span class="listing-badge">Featured</span>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--white);">$8,750,000</div>
+        <div style="font-size:13px;color:rgba(245,240,232,.7);margin-top:.2rem;">Ocean Palms Villa — Miami Beach</div>
+        <div style="display:flex;gap:1.2rem;margin-top:.8rem;font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;">
+          <span>6 Beds</span><span>7 Baths</span><span>9,200 sqft</span>
+        </div>
+        <button class="btn-gold" style="margin-top:1rem;padding:10px 20px;font-size:9.5px;" onclick="window.location.href='properties.html'">View Details</button>
+      </div>
+    </div>
+    <div style="position:relative;overflow:hidden;background:var(--card);cursor:none;">
+      <div style="overflow:hidden;height:260px;"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=700&q=80" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform .7s;filter:brightness(.88);display:block;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"/></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:1.5rem;background:linear-gradient(transparent,rgba(10,10,10,.92));">
+        <span class="listing-badge">New</span>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--white);">$4,200,000</div>
+        <div style="font-size:12px;color:rgba(245,240,232,.7);">Coral Ridge Estate — Fort Lauderdale</div>
+      </div>
+    </div>
+    <div style="position:relative;overflow:hidden;background:var(--card);cursor:none;">
+      <div style="overflow:hidden;height:260px;"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=80" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform .7s;filter:brightness(.88);display:block;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"/></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:1.5rem;background:linear-gradient(transparent,rgba(10,10,10,.92));">
+        <span class="listing-badge">Exclusive</span>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--white);">$6,100,000</div>
+        <div style="font-size:12px;color:rgba(245,240,232,.7);">Brickell Sky Penthouse — Miami</div>
+      </div>
+    </div>
+    <div style="position:relative;overflow:hidden;background:var(--card);cursor:none;">
+      <div style="overflow:hidden;height:260px;"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform .7s;filter:brightness(.88);display:block;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"/></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:1.5rem;background:linear-gradient(transparent,rgba(10,10,10,.92));">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--white);">$3,850,000</div>
+        <div style="font-size:12px;color:rgba(245,240,232,.7);">Coconut Grove Retreat — Miami</div>
+      </div>
+    </div>
+    <div style="position:relative;overflow:hidden;background:var(--card);cursor:none;">
+      <div style="overflow:hidden;height:260px;"><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=700&q=80" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform .7s;filter:brightness(.88);display:block;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"/></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:1.5rem;background:linear-gradient(transparent,rgba(10,10,10,.92));">
+        <span class="listing-badge">Just Listed</span>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--white);">$2,950,000</div>
+        <div style="font-size:12px;color:rgba(245,240,232,.7);">Venetian Islands Gem — Miami</div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:3rem;" class="reveal">
+    <button class="btn-outline" onclick="window.location.href='properties.html'">Browse All Properties →</button>
+  </div>
+</section>
+
+<!-- AGENT PREVIEW -->
+<div style="display:grid;grid-template-columns:1fr 1fr;background:var(--border);gap:1px;">
+  <div style="position:relative;overflow:hidden;min-height:500px;">
+    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80" alt="Agent" style="width:100%;height:100%;object-fit:cover;filter:grayscale(20%) brightness(.85);display:block;"/>
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 60%,var(--deep) 100%);"></div>
+  </div>
+  <div style="background:var(--deep);padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;" class="reveal">
+    <span class="section-tag">✦ Your Agent</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--cream);line-height:1.1;margin-top:1rem;">Alexandra<br/>Montrose</h2>
+    <p style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:.8rem;">Principal Broker & Founder</p>
+    <p style="color:var(--muted);font-size:13.5px;line-height:1.8;margin-top:1.8rem;border-top:1px solid var(--border);padding-top:1.8rem;">With over 18 years navigating Miami's luxury market, Alexandra has built a reputation for uncompromising discretion and deep market intelligence.</p>
+    <div style="margin-top:2rem;">
+      <button class="btn-gold" onclick="window.location.href='about.html'">Meet Alexandra →</button>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIAL STRIP -->
+<section style="padding:6rem 5vw;background:var(--surface);border-top:1px solid var(--border);">
+  <div style="text-align:center;margin-bottom:3rem;" class="reveal">
+    <span class="section-tag">✦ Client Stories</span>
+    <h2 class="section-title">What Our Clients <em>Say</em></h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);">
+    <div style="background:var(--card);padding:2.5rem;" class="reveal">
+      <div style="color:var(--gold);font-size:13px;letter-spacing:.15em;margin-bottom:1.2rem;">★★★★★</div>
+      <blockquote style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;font-weight:300;color:var(--cream);line-height:1.6;">"Alexandra found us a waterfront home that wasn't even on the market. The entire process was flawless."</blockquote>
+      <div style="margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid var(--border);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);">James & Claire Whitmore</div>
+    </div>
+    <div style="background:var(--card);padding:2.5rem;" class="reveal reveal-delay-1">
+      <div style="color:var(--gold);font-size:13px;letter-spacing:.15em;margin-bottom:1.2rem;">★★★★★</div>
+      <blockquote style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;font-weight:300;color:var(--cream);line-height:1.6;">"Sold our penthouse 14% above asking price in under three weeks. The marketing is simply unmatched."</blockquote>
+      <div style="margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid var(--border);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);">Rodrigo Espinoza</div>
+    </div>
+    <div style="background:var(--card);padding:2.5rem;" class="reveal reveal-delay-2">
+      <div style="color:var(--gold);font-size:13px;letter-spacing:.15em;margin-bottom:1.2rem;">★★★★★</div>
+      <blockquote style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;font-weight:300;color:var(--cream);line-height:1.6;">"As an international investor I needed someone I could trust completely. Meridian delivered beyond expectations."</blockquote>
+      <div style="margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid var(--border);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);">Elise Hartmann</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section style="background:var(--gold);padding:5rem 5vw;text-align:center;">
+  <p style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(10,10,10,.6);font-weight:500;margin-bottom:1rem;">✦ Ready to Begin?</p>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;color:var(--black);line-height:1.2;">Your Extraordinary Home<br/><em style="font-style:italic;">Is Waiting</em></h2>
+  <p style="color:rgba(10,10,10,.65);font-size:14px;margin-top:1rem;max-width:480px;margin-left:auto;margin-right:auto;">Schedule a private consultation with Alexandra and begin your journey to the home you deserve.</p>
+  <button style="background:var(--black);color:var(--gold);border:none;padding:15px 38px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:600;cursor:none;margin-top:2rem;transition:background .2s;" onmouseover="this.style.background='#1a1614'" onmouseout="this.style.background='var(--black)'" onclick="window.location.href='contact.html'">Book a Private Consultation</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="footer-logo">Meridian<span>.</span>Estates</a>
+      <p class="footer-tagline">Miami's most trusted luxury real estate agency. Discreet, dedicated, and driven by your vision.</p>
+      <div class="social-row" style="margin-top:1.5rem;">
+        <a href="#" class="social-link">in</a>
+        <a href="#" class="social-link">ig</a>
+        <a href="#" class="social-link">fb</a>
+        <a href="#" class="social-link">yt</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Properties</h5>
+      <ul>
+        <li><a href="properties.html">Miami Beach</a></li>
+        <li><a href="properties.html">Brickell</a></li>
+        <li><a href="properties.html">Coral Gables</a></li>
+        <li><a href="properties.html">Coconut Grove</a></li>
+        <li><a href="properties.html">Fort Lauderdale</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="about.html">Our Team</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="contact.html">Buying</a></li>
+        <li><a href="contact.html">Selling</a></li>
+        <li><a href="contact.html">Investment</a></li>
+        <li><a href="contact.html">Relocation</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Meridian Estates. All rights reserved. Licensed Real Estate Broker — State of Florida.</span>
+    <span>Designed with precision.</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

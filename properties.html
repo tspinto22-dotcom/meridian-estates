@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Properties — Meridian Estates</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.filter-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:1.5rem 5vw;display:flex;gap:1rem;align-items:center;flex-wrap:wrap;position:sticky;top:76px;z-index:100;}
+.filter-select{background:var(--card);border:1px solid var(--border);color:var(--cream);padding:10px 14px;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.08em;outline:none;cursor:none;transition:border-color .2s;min-width:160px;}
+.filter-select:focus{border-color:var(--gold);}
+.filter-select option{background:var(--card);}
+.filter-btn{background:var(--gold);color:var(--black);border:none;padding:10px 22px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:600;cursor:none;transition:background .2s;}
+.filter-btn:hover{background:var(--gold-light);}
+.filter-reset{background:transparent;color:var(--muted);border:1px solid var(--border);padding:10px 18px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-family:'Montserrat',sans-serif;cursor:none;transition:color .2s,border-color .2s;}
+.filter-reset:hover{color:var(--cream);border-color:var(--cream);}
+.properties-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.prop-card{background:var(--card);overflow:hidden;cursor:none;position:relative;}
+.prop-card .img{overflow:hidden;aspect-ratio:4/3;}
+.prop-card .img img{width:100%;height:100%;object-fit:cover;transition:transform .6s;filter:brightness(.88);display:block;}
+.prop-card:hover .img img{transform:scale(1.06);}
+.prop-card .info{padding:1.5rem;}
+.prop-price{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--gold);}
+.prop-name{font-size:13.5px;color:var(--cream);margin-top:.3rem;font-weight:400;}
+.prop-location{font-size:11px;color:var(--muted);margin-top:.2rem;letter-spacing:.06em;}
+.prop-details{display:flex;gap:1rem;margin-top:.8rem;padding-top:.8rem;border-top:1px solid var(--border);font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;}
+.prop-details span{display:flex;align-items:center;gap:.3rem;}
+.prop-actions{display:flex;gap:.6rem;margin-top:1rem;}
+.prop-btn{flex:1;background:transparent;border:1px solid var(--border);color:var(--muted);padding:9px;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-family:'Montserrat',sans-serif;cursor:none;transition:all .2s;text-align:center;}
+.prop-btn:hover{border-color:var(--gold);color:var(--gold);}
+.prop-btn.primary{background:var(--gold);border-color:var(--gold);color:var(--black);font-weight:600;}
+.prop-btn.primary:hover{background:var(--gold-light);}
+.results-bar{padding:1.5rem 5vw;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
+.results-count{font-size:12px;color:var(--muted);letter-spacing:.06em;}
+.results-count span{color:var(--gold);font-weight:500;}
+.badge{display:inline-block;background:var(--gold);color:var(--black);font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;padding:3px 9px;margin-bottom:.6rem;}
+.badge.new{background:var(--cream);color:var(--black);}
+.badge.sold{background:var(--muted);color:var(--black);}
+.no-results{display:none;text-align:center;padding:5rem 2rem;grid-column:1/-1;}
+.no-results.show{display:block;}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav id="mainNav" class="solid">
+  <a href="index.html" class="logo">Meridian<span>.</span>Estates</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="properties.html" class="active">Properties</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="window.location.href='contact.html'">Book Consultation</button>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80');"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="page-eyebrow">✦ Meridian Estates</span>
+    <h1>Our <em>Properties</em></h1>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <select class="filter-select" id="filterLocation">
+    <option value="">All Locations</option>
+    <option value="miami-beach">Miami Beach</option>
+    <option value="brickell">Brickell</option>
+    <option value="coral-gables">Coral Gables</option>
+    <option value="coconut-grove">Coconut Grove</option>
+    <option value="fort-lauderdale">Fort Lauderdale</option>
+  </select>
+  <select class="filter-select" id="filterPrice">
+    <option value="">Any Price</option>
+    <option value="0-3000000">Under $3M</option>
+    <option value="3000000-6000000">$3M – $6M</option>
+    <option value="6000000-999999999">$6M+</option>
+  </select>
+  <select class="filter-select" id="filterBeds">
+    <option value="">Any Beds</option>
+    <option value="3">3+ Beds</option>
+    <option value="4">4+ Beds</option>
+    <option value="5">5+ Beds</option>
+  </select>
+  <select class="filter-select" id="filterType">
+    <option value="">Property Type</option>
+    <option value="villa">Villa</option>
+    <option value="penthouse">Penthouse</option>
+    <option value="estate">Estate</option>
+    <option value="condo">Condo</option>
+  </select>
+  <button class="filter-btn" onclick="applyFilters()">Search</button>
+  <button class="filter-reset" onclick="resetFilters()">Reset</button>
+</div>
+
+<!-- RESULTS COUNT -->
+<div class="results-bar">
+  <p class="results-count">Showing <span id="resultCount">9</span> properties</p>
+  <select class="filter-select" id="sortBy" style="min-width:180px;" onchange="applyFilters()">
+    <option value="default">Sort: Featured</option>
+    <option value="price-high">Price: High to Low</option>
+    <option value="price-low">Price: Low to High</option>
+    <option value="newest">Newest First</option>
+  </select>
+</div>
+
+<!-- PROPERTIES GRID -->
+<div style="padding:2px 0 0;background:var(--black);">
+  <div class="properties-grid" id="propertiesGrid">
+
+    <div class="prop-card reveal" data-location="miami-beach" data-price="8750000" data-beds="6" data-type="villa">
+      <div class="img"><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=700&q=80" alt=""/></div>
+      <div class="info">
+        <span class="badge">Featured</span>
+        <div class="prop-price">$8,750,000</div>
+        <div class="prop-name">Ocean Palms Villa</div>
+        <div class="prop-location">Miami Beach, FL</div>
+        <div class="prop-details"><span>6 Beds</span><span>7 Baths</span><span>9,200 sqft</span></div>
+        <div class="prop-actions">
+          <button class="prop-btn" onclick="window.location.href='contact.html'">Enquire</button>
+          <button class="prop-btn primary" onclick="window.location.href='contact.html'">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prop-card reveal reveal-delay-1" data-location="fort-lauderdale" data-price="4200000" data-beds="5" data-type="estate">
+      <div class="img"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=700&q=80" alt=""/></div>
+      <div class="info">
+        <span class="badge new">New</span>
+        <div class="prop-price">$4,200,000</div>
+        <div class="prop-name">Coral Ridge Estate</div>
+        <div class="prop-location">Fort Lauderdale, FL</div>
+        <div class="prop-details"><span>5 Beds</span><span>5 Baths</span><span>6,100 sqft</span></div>
+        <div class="prop-actions">
+          <button class="prop-btn" onclick="window.location.href='contact.html'">Enquire</button>
+          <button class="prop-btn primary" onclick="window.location.href='contact.html'">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prop-card reveal reveal-delay-2" data-location="brickell" data-price="6100000" data-beds="4" data-type="penthouse">
+      <div class="img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=80" alt=""/></div>
+      <div class="info">
+        <span class="badge">Exclusive</span>
+        <div class="prop-price">$6,100,000</div>
+        <div class="prop-name">Brickell Sky Penthouse</div>
+        <div class="prop-location">Brickell, Miami FL</div>
+        <div class="prop-details"><span>4 Beds</span><span>4 Baths</span><span>5,400 sqft</span></div>
+        <div class="prop-actions">
+          <button class="prop-btn" onclick="window.location.href='contact.html'">Enquire</button>
+          <button class="prop-btn primary" onclick="window.location.href='contact.html'">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prop-card reveal" data-location="coconut-grove" data-price="3850000" data-beds="4" data-type="estate">
+      <div class="img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80" alt=""/></div>
+      <div class="info">
+        <div class="prop-price">$3,850,000</div>
+        <div class="prop-name">Coconut Grove Retreat</div>
+        <div class="prop-location">Coconut Grove, Miami FL</div>
+        <div class="prop-details"><span>4 Beds</span><span>4 Baths</span><span>4,800 sqft</span></div>
+        <div class="prop-actions">
+          <button class="prop-btn" onclick="window.location.href='contact.html'">Enquire</button>
+          <button class="prop-btn primary" onclick="window.location.href='contact.html'">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prop-card reveal reveal-delay-1" data-location="miami-beach" data-price="2950000" data-beds="3" data-type="condo">
+      <div class="img"><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=700&q=80" alt=""/></div>
+      <div class="info">
+        <span class="badge new">Just Listed</span>
+        <div class="prop-price">$2,950,000</div>
+        <div class="prop-name">Venetian Islands Gem</div>
+        <div class="prop-location">Miami Beach, FL</div>
+        <div class="prop-details"><span>3 Beds</span><span>3 Baths</span><span>3,600 sqft</span></div>
+        <div class="prop-actions">
+          <button class="prop-btn" onclick="window.location.href='contact.html'">Enquire</button>
+          <button class="prop-btn primary" onclick="window.location.href='contact.html'">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prop-card reveal reveal-delay-2" data-location="coral-gables" data-price="5400000" data-beds="5" data-type="villa">
+      <div class="img"><img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=700&q=80" alt=""/></div>
+      <div class="info">
+        <div class="prop-price">$5,400,000</div>
+        <div class="prop-name">Coral Gables Manor</div>
+        <div class="prop-location">Coral Gables, FL</div>
+        <div class="prop-details"><span>5 Beds</span><span>6 Baths</span><span>7,200 sqft</span></div>
+        <div class="prop-actions">
+          <button class="prop-btn" onclick="window.location.href='contact.html'">Enquire</button>
+          <button class="prop-btn primary" onclick="window.location.href='contact.html'">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prop-card reveal" data-location="brickell" data-price="1950000" data-beds="3" data-type="condo">
+      <div class="img"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=700&q=80" alt=""/></div>
+      <div class="info">
+        <div class="prop-price">$1,950,000</div>
+        <div class="prop-name">Brickell City Residence</div>
+        <div class="prop-location">Brickell, Miami FL</div>
+        <div class="prop-details"><span>3 Beds</span><span>2 Baths</span><span>2,400 sqft</span></div>
+        <div class="prop-actions">
+          <button class="prop-btn" onclick="window.location.href='contact.html'">Enquire</button>
+          <button class="prop-btn primary" onclick="window.location.href='contact.html'">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prop-card reveal reveal-delay-1" data-location="miami-beach" data-price="12500000" data-beds="6" data-type="villa">
+      <div class="img"><img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=700&q=80" alt=""/></div>
+      <div class="info">
+        <span class="badge">Ultra Luxury</span>
+        <div class="prop-price">$12,500,000</div>
+        <div class="prop-name">Star Island Estate</div>
+        <div class="prop-location">Miami Beach, FL</div>
+        <div class="prop-details"><span>6 Beds</span><span>8 Baths</span><span>12,000 sqft</span></div>
+        <div class="prop-actions">
+          <button class="prop-btn" onclick="window.location.href='contact.html'">Enquire</button>
+          <button class="prop-btn primary" onclick="window.location.href='contact.html'">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prop-card reveal reveal-delay-2" data-location="coral-gables" data-price="3200000" data-beds="4" data-type="estate">
+      <div class="img"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=700&q=80" alt=""/></div>
+      <div class="info">
+        <div class="prop-price">$3,200,000</div>
+        <div class="prop-name">Alhambra Gardens</div>
+        <div class="prop-location">Coral Gables, FL</div>
+        <div class="prop-details"><span>4 Beds</span><span>4 Baths</span><span>5,100 sqft</span></div>
+        <div class="prop-actions">
+          <button class="prop-btn" onclick="window.location.href='contact.html'">Enquire</button>
+          <button class="prop-btn primary" onclick="window.location.href='contact.html'">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="no-results" id="noResults">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--muted);">No properties match your search.</p>
+      <p style="font-size:13px;color:var(--muted);margin-top:.8rem;">Try adjusting your filters or <a href="contact.html" style="color:var(--gold);">contact us</a> for off-market listings.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<section style="background:var(--surface);border-top:1px solid var(--border);padding:5rem 5vw;text-align:center;">
+  <span class="section-tag" style="display:block;text-align:center;">✦ Can't Find What You're Looking For?</span>
+  <h2 class="section-title" style="margin-top:.5rem;">We Have <em>Off-Market</em> Listings</h2>
+  <p style="color:var(--muted);font-size:14px;margin-top:1rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.8;">Many of our most exclusive properties are never publicly listed. Contact us to access our private portfolio.</p>
+  <button class="btn-gold" style="margin-top:2rem;" onclick="window.location.href='contact.html'">Request Private Listings</button>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="footer-logo">Meridian<span>.</span>Estates</a>
+      <p class="footer-tagline">Miami's most trusted luxury real estate agency.</p>
+      <div class="social-row" style="margin-top:1.5rem;">
+        <a href="#" class="social-link">in</a><a href="#" class="social-link">ig</a><a href="#" class="social-link">fb</a>
+      </div>
+    </div>
+    <div class="footer-col"><h5>Navigate</h5><ul><li><a href="index.html">Home</a></li><li><a href="properties.html">Properties</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h5>Locations</h5><ul><li><a href="properties.html">Miami Beach</a></li><li><a href="properties.html">Brickell</a></li><li><a href="properties.html">Coral Gables</a></li><li><a href="properties.html">Fort Lauderdale</a></li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:+13058427700">+1 (305) 842-7700</a></li><li><a href="mailto:hello@meridianestates.com">hello@meridianestates.com</a></li><li><a href="contact.html">Book Consultation</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Meridian Estates. All rights reserved.</span></div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+function applyFilters(){
+  const loc=document.getElementById('filterLocation').value;
+  const priceRange=document.getElementById('filterPrice').value;
+  const beds=parseInt(document.getElementById('filterBeds').value)||0;
+  const type=document.getElementById('filterType').value;
+  const cards=document.querySelectorAll('.prop-card');
+  let count=0;
+  cards.forEach(card=>{
+    const cLoc=card.dataset.location;
+    const cPrice=parseInt(card.dataset.price);
+    const cBeds=parseInt(card.dataset.beds);
+    const cType=card.dataset.type;
+    let show=true;
+    if(loc&&cLoc!==loc)show=false;
+    if(priceRange){const[min,max]=priceRange.split('-').map(Number);if(cPrice<min||cPrice>max)show=false;}
+    if(beds&&cBeds<beds)show=false;
+    if(type&&cType!==type)show=false;
+    card.style.display=show?'block':'none';
+    if(show)count++;
+  });
+  document.getElementById('resultCount').textContent=count;
+  document.getElementById('noResults').classList.toggle('show',count===0);
+}
+function resetFilters(){
+  ['filterLocation','filterPrice','filterBeds','filterType'].forEach(id=>document.getElementById(id).value='');
+  document.querySelectorAll('.prop-card').forEach(c=>c.style.display='block');
+  document.getElementById('resultCount').textContent=9;
+  document.getElementById('noResults').classList.remove('show');
+}
+</script>
+</body>
+</html>

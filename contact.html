@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — Meridian Estates</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.contact-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:1px;background:var(--border);}
+.contact-info-panel{background:var(--deep);padding:5rem 4vw;}
+.contact-form-panel{background:var(--surface);padding:5rem 4vw;}
+.contact-detail{display:flex;align-items:flex-start;gap:1rem;margin-bottom:2.2rem;}
+.contact-icon{width:42px;height:42px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:15px;flex-shrink:0;}
+.contact-detail-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem;}
+.contact-detail-val{font-size:14px;color:var(--cream);line-height:1.5;}
+.contact-detail-val a{color:var(--cream);text-decoration:none;transition:color .2s;}
+.contact-detail-val a:hover{color:var(--gold);}
+.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1rem;}
+.hours-row{font-size:12.5px;color:var(--muted);}
+.hours-row span{color:var(--cream);}
+.success-msg{display:none;background:var(--card);border:1px solid var(--gold);padding:2rem;text-align:center;margin-top:1.5rem;}
+.success-msg.show{display:block;}
+.success-msg h4{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);margin-bottom:.5rem;}
+.success-msg p{font-size:13px;color:var(--muted);}
+.map-placeholder{background:var(--card);border:1px solid var(--border);height:300px;display:flex;align-items:center;justify-content:center;margin-top:2.5rem;position:relative;overflow:hidden;}
+.map-placeholder img{width:100%;height:100%;object-fit:cover;opacity:.4;display:block;}
+.map-placeholder .map-pin{position:absolute;text-align:center;}
+.map-pin-dot{width:16px;height:16px;background:var(--gold);border-radius:50%;margin:0 auto;box-shadow:0 0 0 6px rgba(201,168,76,.25);}
+.map-pin-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-top:.5rem;background:rgba(10,10,10,.8);padding:4px 10px;}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav id="mainNav" class="solid">
+  <a href="index.html" class="logo">Meridian<span>.</span>Estates</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="properties.html">Properties</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="scrollToForm()">Book Consultation</button>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1600566753151-384129cf4e3e?w=1600&q=80');"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="page-eyebrow">✦ We'd Love to Hear From You</span>
+    <h1>Get In <em>Touch</em></h1>
+  </div>
+</div>
+
+<!-- CONTACT LAYOUT -->
+<div class="contact-layout" id="contactForm">
+  <!-- INFO PANEL -->
+  <div class="contact-info-panel reveal">
+    <span class="section-tag">✦ Contact Information</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--cream);line-height:1.1;margin-top:.8rem;margin-bottom:2.5rem;">Let's Start a<br/><em style="font-style:italic;color:var(--gold-light);">Conversation</em></h2>
+
+    <div class="contact-detail">
+      <div class="contact-icon">✆</div>
+      <div>
+        <div class="contact-detail-label">Phone</div>
+        <div class="contact-detail-val"><a href="tel:+13058427700">+1 (305) 842-7700</a></div>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-icon">✉</div>
+      <div>
+        <div class="contact-detail-label">Email</div>
+        <div class="contact-detail-val"><a href="mailto:hello@meridianestates.com">hello@meridianestates.com</a></div>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-icon">◎</div>
+      <div>
+        <div class="contact-detail-label">Office Address</div>
+        <div class="contact-detail-val">1428 Brickell Ave, Suite 1200<br/>Miami, FL 33131</div>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-icon">◷</div>
+      <div>
+        <div class="contact-detail-label">Office Hours</div>
+        <div class="hours-grid">
+          <div class="hours-row">Mon – Fri</div><div class="hours-row"><span>9am – 7pm</span></div>
+          <div class="hours-row">Saturday</div><div class="hours-row"><span>10am – 5pm</span></div>
+          <div class="hours-row">Sunday</div><div class="hours-row"><span>By Appt.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAP PLACEHOLDER -->
+    <div class="map-placeholder">
+      <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69c7b0?w=800&q=70" alt="Miami map"/>
+      <div class="map-pin">
+        <div class="map-pin-dot"></div>
+        <div class="map-pin-label">Meridian Estates</div>
+      </div>
+    </div>
+
+    <!-- SOCIAL -->
+    <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border);">
+      <p style="font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">Follow Us</p>
+      <div style="display:flex;gap:.8rem;">
+        <a href="#" class="social-link">in</a>
+        <a href="#" class="social-link">ig</a>
+        <a href="#" class="social-link">fb</a>
+        <a href="#" class="social-link">yt</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM PANEL -->
+  <div class="contact-form-panel reveal reveal-delay-1">
+    <span class="section-tag">✦ Send a Message</span>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--cream);margin-top:.8rem;margin-bottom:2rem;">Book a Private<br/><em style="font-style:italic;color:var(--gold-light);">Consultation</em></h3>
+
+    <div id="theForm">
+      <div class="form-row">
+        <div class="form-field">
+          <label>First Name *</label>
+          <input type="text" id="firstName" placeholder="John"/>
+        </div>
+        <div class="form-field">
+          <label>Last Name *</label>
+          <input type="text" id="lastName" placeholder="Smith"/>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>Email Address *</label>
+        <input type="email" id="email" placeholder="john@example.com"/>
+      </div>
+      <div class="form-field">
+        <label>Phone Number</label>
+        <input type="tel" id="phone" placeholder="+1 (305) 000-0000"/>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label>I Am Looking To...</label>
+          <select id="intent">
+            <option value="">Select...</option>
+            <option>Buy a Property</option>
+            <option>Sell a Property</option>
+            <option>Buy & Sell</option>
+            <option>Investment Enquiry</option>
+            <option>Relocation Services</option>
+            <option>General Question</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Budget Range</label>
+          <select id="budget">
+            <option value="">Select...</option>
+            <option>Under $2M</option>
+            <option>$2M – $5M</option>
+            <option>$5M – $10M</option>
+            <option>$10M+</option>
+            <option>Flexible</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>Preferred Location</label>
+        <select id="location">
+          <option value="">Any / Open</option>
+          <option>Miami Beach</option>
+          <option>Brickell</option>
+          <option>Coral Gables</option>
+          <option>Coconut Grove</option>
+          <option>Fort Lauderdale</option>
+          <option>Other / Flexible</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>Your Message</label>
+        <textarea id="message" rows="5" placeholder="Tell us about your dream property, timeline, or any questions you have..."></textarea>
+      </div>
+      <div class="form-field">
+        <label>Preferred Contact Method</label>
+        <div style="display:flex;gap:1rem;margin-top:.3rem;">
+          <label style="display:flex;align-items:center;gap:.5rem;font-size:12.5px;color:var(--muted);letter-spacing:0;text-transform:none;cursor:none;">
+            <input type="radio" name="contactMethod" value="phone" style="accent-color:var(--gold);"/> Phone Call
+          </label>
+          <label style="display:flex;align-items:center;gap:.5rem;font-size:12.5px;color:var(--muted);letter-spacing:0;text-transform:none;cursor:none;">
+            <input type="radio" name="contactMethod" value="email" checked style="accent-color:var(--gold);"/> Email
+          </label>
+          <label style="display:flex;align-items:center;gap:.5rem;font-size:12.5px;color:var(--muted);letter-spacing:0;text-transform:none;cursor:none;">
+            <input type="radio" name="contactMethod" value="either" style="accent-color:var(--gold);"/> Either
+          </label>
+        </div>
+      </div>
+      <p id="formError" style="color:#e05555;font-size:12px;margin-top:.5rem;display:none;">Please fill in all required fields (*).</p>
+      <button class="btn-submit" onclick="submitForm()">Send Enquiry →</button>
+    </div>
+
+    <!-- SUCCESS MESSAGE -->
+    <div class="success-msg" id="successMsg">
+      <div style="font-size:2rem;color:var(--gold);margin-bottom:.8rem;">✦</div>
+      <h4>Message Received</h4>
+      <p>Thank you for reaching out. Alexandra or a member of our team will be in touch within 24 hours.</p>
+      <button class="btn-gold" style="margin-top:1.5rem;padding:12px 28px;" onclick="resetForm()">Send Another Message</button>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM QUICK CONTACT -->
+<section style="padding:6rem 5vw;background:var(--black);">
+  <div class="reveal" style="text-align:center;margin-bottom:3rem;">
+    <span class="section-tag">✦ Prefer to Reach Out Directly?</span>
+    <h2 class="section-title">Speak to a<br/><em>Specialist</em></h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);">
+    <div style="background:var(--card);padding:2.5rem;text-align:center;" class="reveal">
+      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&q=80" alt="" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);margin-bottom:1rem;display:block;margin-left:auto;margin-right:auto;"/>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--cream);">Alexandra Montrose</div>
+      <div style="font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-top:.3rem;">Principal Broker</div>
+      <a href="tel:+13058427700" style="display:block;margin-top:1.2rem;font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">+1 (305) 842-7700</a>
+      <button class="btn-outline" style="margin-top:1rem;padding:10px 20px;font-size:9.5px;" onclick="window.location.href='mailto:alexandra@meridianestates.com'">Email Alexandra</button>
+    </div>
+    <div style="background:var(--card);padding:2.5rem;text-align:center;" class="reveal reveal-delay-1">
+      <img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=300&q=80" alt="" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);margin-bottom:1rem;display:block;margin-left:auto;margin-right:auto;"/>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--cream);">Sophia Reyes</div>
+      <div style="font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-top:.3rem;">Waterfront Specialist</div>
+      <a href="tel:+13058427701" style="display:block;margin-top:1.2rem;font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">+1 (305) 842-7701</a>
+      <button class="btn-outline" style="margin-top:1rem;padding:10px 20px;font-size:9.5px;" onclick="window.location.href='mailto:sophia@meridianestates.com'">Email Sophia</button>
+    </div>
+    <div style="background:var(--card);padding:2.5rem;text-align:center;" class="reveal reveal-delay-2">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80" alt="" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);margin-bottom:1rem;display:block;margin-left:auto;margin-right:auto;"/>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--cream);">Marcus Webb</div>
+      <div style="font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-top:.3rem;">Investment Specialist</div>
+      <a href="tel:+13058427702" style="display:block;margin-top:1.2rem;font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">+1 (305) 842-7702</a>
+      <button class="btn-outline" style="margin-top:1rem;padding:10px 20px;font-size:9.5px;" onclick="window.location.href='mailto:marcus@meridianestates.com'">Email Marcus</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div><a href="index.html" class="footer-logo">Meridian<span>.</span>Estates</a><p class="footer-tagline">Miami's most trusted luxury real estate agency.</p><div class="social-row" style="margin-top:1.5rem;"><a href="#" class="social-link">in</a><a href="#" class="social-link">ig</a><a href="#" class="social-link">fb</a></div></div>
+    <div class="footer-col"><h5>Navigate</h5><ul><li><a href="index.html">Home</a></li><li><a href="properties.html">Properties</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h5>Properties</h5><ul><li><a href="properties.html">Miami Beach</a></li><li><a href="properties.html">Brickell</a></li><li><a href="properties.html">Coral Gables</a></li><li><a href="properties.html">Fort Lauderdale</a></li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:+13058427700">+1 (305) 842-7700</a></li><li><a href="mailto:hello@meridianestates.com">hello@meridianestates.com</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Meridian Estates. All rights reserved. Licensed Real Estate Broker — State of Florida.</span></div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+function scrollToForm(){document.getElementById('contactForm').scrollIntoView({behavior:'smooth'});}
+function submitForm(){
+  const fn=document.getElementById('firstName').value.trim();
+  const ln=document.getElementById('lastName').value.trim();
+  const em=document.getElementById('email').value.trim();
+  const err=document.getElementById('formError');
+  if(!fn||!ln||!em){err.style.display='block';return;}
+  err.style.display='none';
+  document.getElementById('theForm').style.display='none';
+  document.getElementById('successMsg').classList.add('show');
+}
+function resetForm(){
+  document.getElementById('theForm').style.display='block';
+  document.getElementById('successMsg').classList.remove('show');
+  ['firstName','lastName','email','phone','message'].forEach(id=>document.getElementById(id).value='');
+  ['intent','budget','location'].forEach(id=>document.getElementById(id).value='');
+}
+</script>
+</body>
+</html>

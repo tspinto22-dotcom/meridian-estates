@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — Meridian Estates</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:3rem;}
+.team-card{background:var(--card);overflow:hidden;cursor:none;}
+.team-card .img{overflow:hidden;aspect-ratio:3/4;}
+.team-card .img img{width:100%;height:100%;object-fit:cover;filter:grayscale(30%) brightness(.85);transition:filter .5s,transform .6s;display:block;}
+.team-card:hover .img img{filter:grayscale(0%) brightness(.9);transform:scale(1.04);}
+.team-info{padding:1.8rem;}
+.team-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--cream);}
+.team-title{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-top:.3rem;}
+.team-bio{font-size:12.5px;color:var(--muted);line-height:1.7;margin-top:.8rem;padding-top:.8rem;border-top:1px solid var(--border);}
+.award-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:3rem;}
+.award-item{background:var(--card);padding:2.5rem 2rem;text-align:center;transition:background .3s;}
+.award-item:hover{background:#222120;}
+.award-year{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--gold);}
+.award-name{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);margin-top:.5rem;line-height:1.5;}
+.award-org{font-size:10.5px;color:var(--muted);margin-top:.3rem;}
+.values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);margin-top:3rem;}
+.value-item{background:var(--card);padding:3rem;display:flex;gap:1.5rem;align-items:flex-start;transition:background .3s;}
+.value-item:hover{background:#222120;}
+.value-icon{font-size:1.5rem;color:var(--gold);flex-shrink:0;margin-top:.2rem;}
+.value-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--cream);margin-bottom:.5rem;}
+.value-desc{font-size:13px;color:var(--muted);line-height:1.7;}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav id="mainNav" class="solid">
+  <a href="index.html" class="logo">Meridian<span>.</span>Estates</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="properties.html">Properties</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="window.location.href='contact.html'">Book Consultation</button>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80');"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="page-eyebrow">✦ Our Story</span>
+    <h1>Built on <em>Trust</em><br/>& Excellence</h1>
+  </div>
+</div>
+
+<!-- STORY -->
+<section style="padding:7rem 5vw;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;">
+  <div class="reveal">
+    <span class="section-tag">✦ Who We Are</span>
+    <h2 class="section-title">Miami's Most<br/><em>Trusted</em> Agency</h2>
+    <div class="gold-line"></div>
+    <p class="section-body">Founded in 2007 by Alexandra Montrose, Meridian Estates was born from a simple belief: that buying or selling a luxury home should be an extraordinary experience — not a stressful one.</p>
+    <p style="color:var(--muted);font-size:14px;line-height:1.8;margin-top:1rem;max-width:520px;">Over 18 years, we've grown into Miami's premier luxury real estate firm, with a team of dedicated specialists who live and breathe this market. Our success is measured not in commissions, but in the relationships we build and the lives we help transform.</p>
+    <div style="display:flex;gap:3rem;margin-top:2.5rem;">
+      <div><div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;color:var(--gold);">2007</div><div style="font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:.3rem;">Founded</div></div>
+      <div><div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;color:var(--gold);">12</div><div style="font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:.3rem;">Team Members</div></div>
+      <div><div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;color:var(--gold);">340+</div><div style="font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:.3rem;">Homes Sold</div></div>
+    </div>
+  </div>
+  <div class="reveal reveal-delay-1" style="position:relative;">
+    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Office" style="width:100%;height:480px;object-fit:cover;filter:brightness(.85);display:block;"/>
+    <div style="position:absolute;bottom:-20px;right:-20px;background:var(--gold);padding:2rem;width:180px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--black);">#1</div>
+      <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(10,10,10,.7);margin-top:.3rem;line-height:1.4;">Miami Luxury Agency 2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- ALEXANDRA FEATURE -->
+<div style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--border);">
+    <div style="position:relative;overflow:hidden;min-height:600px;">
+      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80" alt="Alexandra" style="width:100%;height:100%;object-fit:cover;filter:grayscale(10%) brightness(.88);display:block;"/>
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 50%,var(--surface) 100%);"></div>
+    </div>
+    <div style="background:var(--surface);padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;" class="reveal">
+      <span class="section-tag">✦ Meet the Founder</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--cream);line-height:1.08;margin-top:.8rem;">Alexandra<br/><em style="font-style:italic;color:var(--gold-light);">Montrose</em></h2>
+      <p style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:.8rem;">Principal Broker & Founder</p>
+      <div class="gold-line"></div>
+      <p style="color:var(--muted);font-size:13.5px;line-height:1.8;">Born and raised in Miami, Alexandra developed an intimate understanding of the city's neighborhoods, culture, and real estate dynamics from an early age. After a decade working with two of New York's top luxury firms, she returned home to found Meridian Estates.</p>
+      <p style="color:var(--muted);font-size:13.5px;line-height:1.8;margin-top:1rem;">Her approach is deeply personal — she takes on a limited number of clients each year to ensure every transaction receives her full attention and expertise. The result is a track record that speaks for itself.</p>
+      <div style="display:flex;gap:2rem;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border);">
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);">$2.4B</div><div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:.2rem;">Career Sales</div></div>
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);">18yr</div><div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:.2rem;">Experience</div></div>
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);">#1</div><div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:.2rem;">Miami 2024</div></div>
+      </div>
+      <button class="btn-gold" style="margin-top:2rem;align-self:flex-start;" onclick="window.location.href='contact.html'">Schedule a Meeting</button>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<section style="padding:7rem 5vw;background:var(--black);">
+  <div class="reveal" style="text-align:center;">
+    <span class="section-tag">✦ Our Team</span>
+    <h2 class="section-title">The People Behind<br/><em>Every Deal</em></h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="img"><img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=600&q=80" alt=""/></div>
+      <div class="team-info">
+        <div class="team-name">Sophia Reyes</div>
+        <div class="team-title">Senior Sales Associate</div>
+        <p class="team-bio">Specializing in waterfront and new development properties across Miami Beach and Surfside. 8 years with Meridian.</p>
+      </div>
+    </div>
+    <div class="team-card reveal reveal-delay-1">
+      <div class="img"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt=""/></div>
+      <div class="team-info">
+        <div class="team-name">Marcus Webb</div>
+        <div class="team-title">Investment Specialist</div>
+        <p class="team-bio">Focused on high-yield investment properties and portfolio management. Former Goldman Sachs analyst.</p>
+      </div>
+    </div>
+    <div class="team-card reveal reveal-delay-2">
+      <div class="img"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" alt=""/></div>
+      <div class="team-info">
+        <div class="team-name">Elena Castillo</div>
+        <div class="team-title">Relocation Director</div>
+        <p class="team-bio">Guiding families and executives relocating to Miami with seamless transitions and local expertise since 2015.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section style="padding:7rem 5vw;background:var(--surface);border-top:1px solid var(--border);">
+  <div class="reveal" style="text-align:center;margin-bottom:1rem;">
+    <span class="section-tag">✦ What We Stand For</span>
+    <h2 class="section-title">Our <em>Values</em></h2>
+  </div>
+  <div class="values-grid">
+    <div class="value-item reveal"><div class="value-icon">◈</div><div><div class="value-title">Discretion</div><p class="value-desc">Every client relationship is built on absolute confidentiality. We never disclose client identities or transaction details without explicit permission.</p></div></div>
+    <div class="value-item reveal reveal-delay-1"><div class="value-icon">◉</div><div><div class="value-title">Expertise</div><p class="value-desc">Our agents are among the most knowledgeable in the Miami market — with deep roots in every neighborhood we serve.</p></div></div>
+    <div class="value-item reveal reveal-delay-2"><div class="value-icon">◐</div><div><div class="value-title">Dedication</div><p class="value-desc">We take on a limited number of clients to ensure every transaction receives the attention and care it deserves.</p></div></div>
+    <div class="value-item reveal reveal-delay-3"><div class="value-icon">◈</div><div><div class="value-title">Results</div><p class="value-desc">Our track record speaks for itself — 97% client satisfaction and consistently above-market sale prices for our sellers.</p></div></div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section style="padding:7rem 5vw;background:var(--black);">
+  <div class="reveal" style="text-align:center;">
+    <span class="section-tag">✦ Recognition</span>
+    <h2 class="section-title"><em>Awards</em> & Accolades</h2>
+  </div>
+  <div class="award-grid">
+    <div class="award-item reveal"><div class="award-year">2024</div><div class="award-name">#1 Luxury Brokerage</div><div class="award-org">Miami Association of Realtors</div></div>
+    <div class="award-item reveal reveal-delay-1"><div class="award-year">2023</div><div class="award-name">Best Real Estate Agency</div><div class="award-org">Miami New Times</div></div>
+    <div class="award-item reveal reveal-delay-2"><div class="award-year">2022</div><div class="award-name">Top Producing Team</div><div class="award-org">Florida Realtors</div></div>
+    <div class="award-item reveal reveal-delay-3"><div class="award-year">2021</div><div class="award-name">Excellence in Service</div><div class="award-org">Luxury Portfolio International</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--gold);padding:5rem 5vw;text-align:center;">
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;color:var(--black);">Ready to Work<br/><em style="font-style:italic;">With Us?</em></h2>
+  <p style="color:rgba(10,10,10,.65);font-size:14px;margin-top:1rem;max-width:480px;margin-left:auto;margin-right:auto;">Schedule a private consultation and discover what sets Meridian Estates apart.</p>
+  <button style="background:var(--black);color:var(--gold);border:none;padding:15px 38px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:600;cursor:none;margin-top:2rem;" onclick="window.location.href='contact.html'">Contact Us Today</button>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div><a href="index.html" class="footer-logo">Meridian<span>.</span>Estates</a><p class="footer-tagline">Miami's most trusted luxury real estate agency.</p><div class="social-row" style="margin-top:1.5rem;"><a href="#" class="social-link">in</a><a href="#" class="social-link">ig</a><a href="#" class="social-link">fb</a></div></div>
+    <div class="footer-col"><h5>Navigate</h5><ul><li><a href="index.html">Home</a></li><li><a href="properties.html">Properties</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h5>Team</h5><ul><li><a href="about.html">Alexandra Montrose</a></li><li><a href="about.html">Sophia Reyes</a></li><li><a href="about.html">Marcus Webb</a></li><li><a href="about.html">Elena Castillo</a></li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:+13058427700">+1 (305) 842-7700</a></li><li><a href="mailto:hello@meridianestates.com">hello@meridianestates.com</a></li><li><a href="contact.html">Book Consultation</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Meridian Estates. All rights reserved.</span></div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
